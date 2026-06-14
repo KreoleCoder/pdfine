@@ -6,6 +6,11 @@ __pycache__/
 # C extensions
 *.so
 
+#Miscellaneous
+merged_pdf/
+pdf_files/
+Samples/
+
 # Distribution / packaging
 .Python
 build/
