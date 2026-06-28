@@ -11,6 +11,12 @@ WTSpace/
 merged_pdf/
 pdf_files/
 Samples/
+.idea/
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
 
 # Distribution / packaging
 .Python
