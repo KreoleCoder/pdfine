@@ -1,7 +1,7 @@
 
 import tkinter as tk
 # from tkinter import filedialog, messagebox
-from pdfine_merge import add_files
+from pdfine_merge import add_files, merge_pdfs, clear_list
 
 
 main = tk.Tk()
@@ -20,15 +20,19 @@ def file_adder():
     for file in file_list:
         listbox.insert(tk.END, file)
 
+def wipe_list():
+    clear_list()
+    listbox.delete(0, tk.END)
+
 menu = tk.Menu(main)
 main.config(menu=menu)
 menu_0 = tk.Menu(menu, tearoff=0)
 menu_0.add_command(label="Add", command=file_adder)
-menu_0.add_command(label="Clear", command=lambda: print("Clear clicked"))
+menu_0.add_command(label="Clear", command=wipe_list)
 menu_0.add_command(label="Exit", command=lambda: print("Exit clicked"))
 menu.add_cascade(label="File", menu=menu_0)
 menu_1 = tk.Menu(menu, tearoff=0)
-menu_1.add_command(label="Merge", command=lambda: print("Merge clicked"))
+menu_1.add_command(label="Merge", command=merge_pdfs)
 menu_1.add_command(label="Compress", command=lambda: print("Compress clicked"))
 menu.add_cascade(label="Edit", menu=menu_1)
 
