@@ -1,8 +1,9 @@
 
 import tkinter as tk
-# from tkinter import filedialog, messagebox
+from pathlib import Path
 from pdfine_merge import add_files, merge_pdfs, clear_list
 
+icon_dir = Path("../../asset/icon")
 
 main = tk.Tk()
 main.title("PDFine")
@@ -12,6 +13,14 @@ main.update_idletasks()
 
 geometryX = 500
 geometryY = 100
+
+# This line is used to make the main window non-resizable
+# main.resizable(False, False)
+
+# --- Custom Window Icon ---
+# Use a .png or .ico file
+pdfine_favicon = tk.PhotoImage(file=icon_dir/"pdfine-icon-81x81.png")  # Replace with your file path
+main.iconphoto(True, pdfine_favicon)
 
 main.geometry("+%d+%d"%(geometryX, geometryY))
 
@@ -33,7 +42,7 @@ menu_0.add_command(label="Exit", command=main.quit)
 menu.add_cascade(label="File", menu=menu_0)
 menu_1 = tk.Menu(menu, tearoff=0)
 menu_1.add_command(label="Merge", command=merge_pdfs)
-menu_1.add_command(label="Compress", command=lambda: print("Compress clicked"))
+# menu_1.add_command(label="Compress", command=lambda: print("Compress clicked"))
 menu.add_cascade(label="Edit", menu=menu_1)
 
 
