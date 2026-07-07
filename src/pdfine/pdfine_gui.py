@@ -3,7 +3,14 @@ import tkinter as tk
 from pathlib import Path
 from pdfine_merge import add_files, merge_pdfs, clear_list
 
-icon_dir = Path("../../asset/icon")
+#asset relative path settings
+# icon_dir = Path("../../asset/icon")
+
+#get the absolute path of the module
+base_dir = Path(__file__).resolve().parent
+
+#Set the absolute path for the asset/icon resources
+icon_dir = Path(Path(base_dir.parent).parent, "asset", "icon")
 
 main = tk.Tk()
 main.title("PDFine")
