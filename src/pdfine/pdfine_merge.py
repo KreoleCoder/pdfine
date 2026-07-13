@@ -1,6 +1,7 @@
 
 from tkinter import filedialog, messagebox
 from pypdf import PdfWriter
+from pdfine_compress import pdfs_compressor
 
 file_list = []
 
@@ -34,6 +35,22 @@ def merge_pdfs():
         merger.close()
         messagebox.showinfo("Success", f"Merged PDF saved as:\n{output_file}")
 
+def compress_pdfs():
+    if not file_list:
+        messagebox.showwarning("No Files", "Please add PDF files first.")
+        return
+
+    for pdf in file_list:
+        compress = PdfWriter(clone_from=pdf)
+        pdfs_compressor(compress)
+
+        output_file = filedialog.asksaveasfilename(
+                defaultextension=".pdf",
+                filetypes=[("PDF Files", "*.pdf")],
+                title="Save Compressed PDF As"
+            )
+
+        compress.write(output_file)
 
 def clear_list():
     if file_list:
