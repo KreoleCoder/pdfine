@@ -1,7 +1,7 @@
 
 import tkinter as tk
 from pathlib import Path
-from pdfine_merge import add_files, merge_pdfs, compress_pdfs, clear_list
+from pdfine_core import add_files, merge_pdfs, compress_pdfs, clear_list
 
 #asset relative path settings
 # icon_dir = Path("../../asset/icon")
