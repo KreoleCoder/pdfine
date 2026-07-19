@@ -24,7 +24,11 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dependencies = []
+dependencies = [
+  "pillow>=12.3.0",
+  "pypdf>=6.14.2",
+  "typing_extensions>=4.16.0",
+]
 
 [project.urls]
 Documentation = "https://github.com/KreoleCoder/pdfine#readme"
@@ -59,3 +63,6 @@ exclude_lines = [
   "if __name__ == .__main__.:",
   "if TYPE_CHECKING:",
 ]
+
+[project.gui-scripts]
+pdfine = "pdfine.pdfine_gui:gui_app"
