@@ -1,8 +1,8 @@
 
 from tkinter import filedialog, messagebox
 from pypdf import PdfWriter
-from pdfine_merge import pdfs_merger
-from pdfine_compress import pdfs_compressor
+from pdfine.pdfine_merge import pdfs_merger
+from pdfine.pdfine_compress import pdfs_compressor
 
 file_list = []
 

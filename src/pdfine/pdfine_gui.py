@@ -1,7 +1,7 @@
 
 import tkinter as tk
 from pathlib import Path
-from pdfine_core import add_files, merge_pdfs, compress_pdfs, clear_list
+from pdfine.pdfine_core import add_files, merge_pdfs, compress_pdfs, clear_list
 
 #asset relative path settings
 # icon_dir = Path("../../asset/icon")
@@ -15,7 +15,7 @@ icon_dir = Path(Path(base_dir.parent).parent, "asset", "icon")
 main = tk.Tk()
 main.title("PDFine")
 main.config(bg="#E4E2E2")
-main.geometry("700x350") # size can be 500x415
+main.geometry("700x350")  # size can be 500x415
 main.update_idletasks()
 
 geometryX = 500
@@ -26,19 +26,22 @@ geometryY = 100
 
 # --- Custom Window Icon ---
 # Use a .png or .ico file
-pdfine_favicon = tk.PhotoImage(file=icon_dir/"pdfine-icon-81x81.png")  # Replace with your file path
+pdfine_favicon = tk.PhotoImage(file=icon_dir / "pdfine-icon-81x81.png")  # Replace with your file path
 main.iconphoto(True, pdfine_favicon)
 
-main.geometry("+%d+%d"%(geometryX, geometryY))
+main.geometry("+%d+%d" % (geometryX, geometryY))
+
 
 def file_adder():
     file_list = add_files()
     for file in file_list:
         listbox.insert(tk.END, file)
 
+
 def wipe_list():
     clear_list()
     listbox.delete(0, tk.END)
+
 
 menu = tk.Menu(main)
 main.config(menu=menu)
@@ -52,12 +55,10 @@ menu_1.add_command(label="Merge", command=merge_pdfs)
 menu_1.add_command(label="Compress", command=compress_pdfs)
 menu.add_cascade(label="Edit", menu=menu_1)
 
-
 # Listbox to show selected files
-listbox = tk.Listbox(master=main) # size width=70, height=20
-listbox.config(bg="#EDECEC", fg="#000", bd=1, font=("Arial", 13, "bold"),selectmode="browse")
+listbox = tk.Listbox(master=main)  # size width=70, height=20
+listbox.config(bg="#EDECEC", fg="#000", bd=1, font=("Arial", 13, "bold"), selectmode="browse")
 listbox.place(x=0, y=0, width=700, height=350)
-
 
 
 # Use to add buttons for merge and compress
@@ -71,6 +72,8 @@ listbox.place(x=0, y=0, width=700, height=350)
 # compress.place(x=171, y=194, width=80, height=40)
 
 
+def gui_app():
+    main.mainloop()
 
-
-main.mainloop()
+if __name__ == "__main__":
+    gui_app()
