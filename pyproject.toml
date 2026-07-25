@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "pdfine"
 dynamic = ["version"]
-description = ''
+description = 'Free and open source pdf editor'
 readme = "README.md"
 requires-python = ">=3.8"
 license = "GPL-2.0"
