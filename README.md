@@ -7,13 +7,17 @@
 
 ## Table of Contents
 
-- [Installation](#installation)
-- [License](#license)
+-  [Installation](#installation)
+-  [License](#license)
 
 ## Installation
 
 ```console
 pip install pdfine
+```
+or (Recommended)
+```console
+pipx install pdfine
 ```
 
 ## License
