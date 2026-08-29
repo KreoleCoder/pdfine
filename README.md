@@ -24,9 +24,9 @@ PyPDF library for PDF operations.
 
 PDFine is the combination of:
 - PDF: Portable Document Format; and 
-- (F)ine: As in ReFined or ReFiner
+- (F)ine: As in ReFined or ReFiner 
 
-PDFine is **for now, ver simple**, it does one thing (well actually two things :)), and try to does it well, it **merges** multiple PDF
+PDFine is **for now, ver simple**, it does one thing (well actually two things :) ), and try to do it well, it **merges** multiple PDF
 files into one single PDF file and, it **compresses** one or multiple PDF files.
 
 ---
@@ -38,7 +38,8 @@ files into one single PDF file and, it **compresses** one or multiple PDF files.
 - `python` 3.8 or higher
 - `pip` or `pipx` package manager
 
-> [!NOTE] On some Linux distros you will be required to install `tkinter` python's standard built-in GUIs library.
+> [!NOTE] 
+> On some Linux distros you will be required to install `tkinter` python's standard built-in GUIs library.
 
 > ### Recommended
 > 
@@ -47,7 +48,6 @@ files into one single PDF file and, it **compresses** one or multiple PDF files.
 >pipx install pdfine
 >```
 >***This installs PDFine in an isolated environment, preventing dependency conflicts.***
-
 
 > ### Alternative
 >```console
