@@ -7,11 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0-rc.1] - 2026-08-30
+
+### Changed
+
+- Improvement to the way files are display to the users in the GUI.
+
+### Fixed
+
+- Fix typo in the License file.
+- Fix Markdown indentation and grammar errors in the readme file.
+
 ## [1.0.0-rc.0] - 2026-07-19
 
 ### Added
 
-- Add entry point for simpler execution
+- Add entry point for simpler execution.
 
 ## [0.5.1] - 2026-07-16
 
@@ -61,6 +72,8 @@ PDF files.
 
 - Add the GUI for users interaction.
 
+[Unreleased]: https://github.com/KreoleCoder/pdfine/compare/v1.0.0rc1...HEAD
+[1.0.0-rc.1]: https://github.com/KreoleCoder/pdfine/compare/v1.0.0rc0...v1.0.0rc1
 [1.0.0-rc.0]: https://github.com/KreoleCoder/pdfine/compare/v0.5.1...v1.0.0rc0
 [0.5.1]: https://github.com/KreoleCoder/pdfine/compare/v0.5.0...v0.5.1
 [0.5.0]: https://github.com/KreoleCoder/pdfine/compare/v0.4.1...v0.5.0
