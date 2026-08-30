@@ -35,7 +35,7 @@ main.geometry("+%d+%d" % (geometryX, geometryY))
 def file_adder():
     file_list = add_files()
     for file in file_list:
-        listbox.insert(tk.END, file)
+        listbox.insert(tk.END, Path(file).name)
 
 
 def wipe_list():
