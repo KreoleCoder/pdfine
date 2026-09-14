@@ -4,6 +4,9 @@ from pypdf import PdfWriter
 from pdfine.pdfine_merge import pdfs_merger
 from pdfine.pdfine_compress import pdfs_compressor
 
+# Import for test code.
+# from pathlib import Path
+
 file_list = []
 
 def add_files():
@@ -51,6 +54,22 @@ def compress_pdfs():
             )
 
         compress.write(output_file)
+
+
+def delete_list_item(selected_item):
+    # Test codo log output to console
+    # for i in file_list:
+    #     print(Path(i).name)
+    # print("")
+
+    # item_index = selected_item[0]
+    # del file_list[selected_item]
+    file_list.pop(selected_item)
+
+    # Test codo log output to console
+    # for r in file_list:
+    #     print(Path(r).name)
+
 
 def clear_list():
     if file_list:
