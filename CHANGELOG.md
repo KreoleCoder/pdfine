@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-09-14
+
+### Added  
+
+- Add single item delete option in the Edit menu.  
+- Add single item delete option to context menu which pop-Up on right click action
+only in the listbox.  
+
+### Changed  
+
+- Change the main menu layout.
+
 ## [1.0.0-rc.1] - 2026-08-30
 
 ### Changed
@@ -72,7 +84,8 @@ PDF files.
 
 - Add the GUI for users interaction.
 
-[Unreleased]: https://github.com/KreoleCoder/pdfine/compare/v1.0.0rc1...HEAD
+[Unreleased]: https://github.com/KreoleCoder/pdfine/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/KreoleCoder/pdfine/compare/v1.0.0rc1...v1.0.0
 [1.0.0-rc.1]: https://github.com/KreoleCoder/pdfine/compare/v1.0.0rc0...v1.0.0rc1
 [1.0.0-rc.0]: https://github.com/KreoleCoder/pdfine/compare/v0.5.1...v1.0.0rc0
 [0.5.1]: https://github.com/KreoleCoder/pdfine/compare/v0.5.0...v0.5.1
