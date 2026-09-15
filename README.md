@@ -65,23 +65,23 @@ files into one single PDF file and, it **compresses** one or multiple PDF files.
 
 > Open pdfine app interface, it looks like this.
 
-![main](./asset/doc/img/main_window.png)
+![main](https://github.com/KreoleCoder/pdfine/blob/82e3d49470a2671de61a7699b7ef8b72702462e6/asset/doc/img/main_window.png)
 
 > There are two menu option `File` and `Edit` </br>
 > 
 > To add a file or multiple files select the `File` option and chose `Add`
 
-![file](./asset/doc/img/add_file.png)
+![file](https://github.com/KreoleCoder/pdfine/blob/82e3d49470a2671de61a7699b7ef8b72702462e6/asset/doc/img/add_file.png)
 
 > Now to Merge multiple PDF files into one single PDF file, select the `Edit`
 > option and chose `Merge`.
 
-![merge](./asset/doc/img/merge_files.png)
+![merge](https://github.com/KreoleCoder/pdfine/blob/82e3d49470a2671de61a7699b7ef8b72702462e6/asset/doc/img/merge_files.png)
 
 > There is also the option of compressing one or more PDF files, to achieve
 > this, go to `Edit` and select `Compress`</br>
 
-![compress](./asset/doc/img/compress_files.png)
+![compress](https://github.com/KreoleCoder/pdfine/blob/82e3d49470a2671de61a7699b7ef8b72702462e6/asset/doc/img/compress_files.png)
 
 > [!IMPORTANT]  
 > Always make sure PDF file is already added before merging or compressing.
