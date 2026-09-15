@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-09-15
+
+### Fixed
+
+- Fixes bug in the pypdf Library 
+
+### Security
+
+- Fixes security issue in the pypdf Library
+
+See pypdf release notes [here](https://github.com/py-pdf/pypdf/releases#release-6.14.2)  
+Find the pypdf full changelog [here](https://github.com/py-pdf/pypdf/compare/6.18.0...6.18.1)  
+
 ## [1.0.0] - 2026-09-14
 
 ### Added  
@@ -84,7 +97,8 @@ PDF files.
 
 - Add the GUI for users interaction.
 
-[Unreleased]: https://github.com/KreoleCoder/pdfine/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/KreoleCoder/pdfine/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/KreoleCoder/pdfine/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/KreoleCoder/pdfine/compare/v1.0.0rc1...v1.0.0
 [1.0.0-rc.1]: https://github.com/KreoleCoder/pdfine/compare/v1.0.0rc0...v1.0.0rc1
 [1.0.0-rc.0]: https://github.com/KreoleCoder/pdfine/compare/v0.5.1...v1.0.0rc0
