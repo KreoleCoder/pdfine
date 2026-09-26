@@ -22,7 +22,7 @@ pdfine_favicon = tk.PhotoImage(file=icon_dir / "pdfine-icon-81x81.png")  # Repla
 main.iconphoto(True, pdfine_favicon)
 
 main.config(bg="#E4E2E2")
-main.geometry("700x350")  # size can be 500x415
+main.geometry("980x580")  # size can be 500x415 | 700x350 | 980x580
 main.update_idletasks()
 
 # Help to set where the window will appear
@@ -31,8 +31,7 @@ geometryY = 100
 main.geometry("+%d+%d" % (geometryX, geometryY))
 
 # This line is used to make the main window non-resizable
-# main.resizable(False, False)
-
+main.resizable(False, False)
 
 def file_adder():
     file_list = add_files()
@@ -81,23 +80,27 @@ menu.add_cascade(label="Edit", menu=menu_1)
 
 # Listbox to show selected files
 listbox = tk.Listbox(master=main)  # size width=70, height=20
-listbox.config(bg="#EDECEC", fg="#000", bd=1, font=("Arial", 13, "bold"), selectmode="browse")
-listbox.place(x=0, y=0, width=700, height=350)
+listbox.config(bg="#EDECEC", fg="#000", font=("Arial", 13, "bold"), selectmode="browse")
+# listbox.place(x=0, y=0, width=700, height=350)
+listbox.pack(fill="both", expand=True)
+
 
 # menu use for mouse right click action
 context_menu = tk.Menu(main, tearoff=0, font=("Arial", 11))
 context_menu.add_command(label="Delete", command=item_deletion)
 
+
 # Binding right click action to the listbox area
 listbox.bind("<Button-3>", right_click)
 
 
-
 # Use to add buttons for merge and compress
+
 
 # merge = tk.Button(master=main, text="Merge")
 # merge.config(bg="#E4E2E2", fg="#000", bd=1, relief=tk.RAISED)
 # merge.place(x=90, y=194, width=80, height=40)
+
 
 # compress = tk.Button(master=main, text="Compress")
 # compress.config(bg="#E4E2E2", fg="#000", bd=1, relief=tk.RAISED)
