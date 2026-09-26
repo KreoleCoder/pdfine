@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Enable the main window to be non-resizable.
+- Change the main window size from 700x350 to 980x580.
+- Expand the listbox to fill the main window.
+
 ## [1.0.1] - 2026-09-15
 
 ### Fixed
