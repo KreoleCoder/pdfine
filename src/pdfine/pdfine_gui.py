@@ -15,22 +15,23 @@ icon_dir = Path(Path(base_dir.parent).parent, "asset", "icon")
 
 main = tk.Tk()
 main.title("PDFine")
-main.config(bg="#E4E2E2")
-main.geometry("700x350")  # size can be 500x415
-main.update_idletasks()
-
-geometryX = 500
-geometryY = 100
-
-# This line is used to make the main window non-resizable
-# main.resizable(False, False)
 
 # --- Custom Window Icon ---
 # Use a .png or .ico file
 pdfine_favicon = tk.PhotoImage(file=icon_dir / "pdfine-icon-81x81.png")  # Replace with your file path
 main.iconphoto(True, pdfine_favicon)
 
+main.config(bg="#E4E2E2")
+main.geometry("700x350")  # size can be 500x415
+main.update_idletasks()
+
+# Help to set where the window will appear
+geometryX = 500
+geometryY = 100
 main.geometry("+%d+%d" % (geometryX, geometryY))
+
+# This line is used to make the main window non-resizable
+# main.resizable(False, False)
 
 
 def file_adder():
