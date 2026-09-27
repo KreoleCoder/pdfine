@@ -80,7 +80,12 @@ menu.add_cascade(label="Edit", menu=menu_1)
 
 # Listbox to show selected files
 listbox = tk.Listbox(master=main)  # size width=70, height=20
-listbox.config(bg="#EDECEC", fg="#000", font=("Arial", 13, "bold"), selectmode="browse")
+listbox.config(bg="#EDECEC",
+               fg="#000",
+               font=("Arial", 13, "bold"),
+               selectmode="browse",
+               selectbackground="#8453ED",
+               selectforeground="white")
 # listbox.place(x=0, y=0, width=700, height=350)
 listbox.pack(fill="both", expand=True)
 

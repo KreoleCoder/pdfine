@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added 
+
+- Add background and foreground color to selected item.
+
 ### Changed
 
 - Enable the main window to be non-resizable.
