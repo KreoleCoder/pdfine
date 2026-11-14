@@ -1,5 +1,6 @@
 
 from tkinter import filedialog, messagebox
+from pathlib import Path
 from pypdf import PdfWriter
 from pdfine.pdfine_merge import pdfs_merger
 from pdfine.pdfine_compress import pdfs_compressor
@@ -8,6 +9,27 @@ from pdfine.pdfine_compress import pdfs_compressor
 # from pathlib import Path
 
 file_list = []
+
+
+def file_size(list_item_index):
+    selected_item_size = 0
+
+    if file_list:
+        selected_item = file_list[list_item_index]
+        selected_item_size = Path(selected_item).stat().st_size
+
+    return selected_item_size
+
+
+def get_total_file_size():
+    total_size = 0
+
+    if file_list:
+        for file in file_list:
+            total_size += Path(file).stat().st_size
+
+    return total_size
+
 
 def add_files():
     files = filedialog.askopenfilenames(
@@ -57,7 +79,7 @@ def compress_pdfs():
 
 
 def delete_list_item(selected_item):
-    # Test codo log output to console
+    # Test code log output to console
     # for i in file_list:
     #     print(Path(i).name)
     # print("")
@@ -66,9 +88,10 @@ def delete_list_item(selected_item):
     # del file_list[selected_item]
     file_list.pop(selected_item)
 
-    # Test codo log output to console
+    # Test code log output to console
     # for r in file_list:
     #     print(Path(r).name)
+    return file_list
 
 
 def clear_list():

@@ -2,7 +2,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from pathlib import Path
-from pdfine.pdfine_core import add_files, merge_pdfs, compress_pdfs, clear_list, delete_list_item
+from pdfine.pdfine_core import add_files, merge_pdfs, compress_pdfs, clear_list, delete_list_item, get_total_file_size, file_size
 
 #asset relative path settings
 # icon_dir = Path("../../asset/icon")
@@ -38,15 +38,21 @@ def file_adder():
     for file in file_list:
         listbox.insert(tk.END, Path(file).name)
 
+    # listbox.get(0, tk.END)
+    total_file_size = get_total_file_size()
+    status_bar.config(text=f" {len(listbox.get(0, tk.END))} file(s) - ({(total_file_size/1000**2):.2f} MB) ")
+
 
 def item_deletion():
     try:
         selected_item = listbox.curselection()[0]
-        # Test codo log output to console
+        # Test code log output to console
         # print(selected_item)
         # if selected_item >= 0:
         listbox.delete(selected_item)
-        delete_list_item(selected_item)
+        files = delete_list_item(selected_item)
+        total_file_size = get_total_file_size()
+        status_bar.config(text=f" {str(len(files))} file(s) - ({(total_file_size/1000**2):.2f} MB) ")
 
     except IndexError:
         messagebox.showwarning("No File Selected", "Please select a file to delete")
@@ -55,11 +61,29 @@ def item_deletion():
 def wipe_list():
     clear_list()
     listbox.delete(0, tk.END)
+    status_bar.config(text=f" {len(listbox.get(0, tk.END))} file(s) ")
 
 
 # Right click event handler function
 def right_click(event):
     context_menu.tk_popup(event.x_root, event.y_root)
+
+
+# Listbox items selection event handler function
+# Update the Status Bar.
+def status_bar_updater(event):
+    selected_index = listbox.curselection()
+
+    if selected_index:
+        list_item_index = selected_index[0]
+        selected_item = listbox.get(list_item_index)
+        item_size = file_size(list_item_index)
+        status_bar.config(text=f"{selected_item} ({(item_size/1000**2):.2f} MB) ")
+
+    else:
+        total_file_size = get_total_file_size()
+        status_bar.config(text=f" {len(listbox.get(0, tk.END))} file(s) - ({(total_file_size/1000**2):.2f} MB) ")
+
 
 
 menu = tk.Menu(main)
@@ -98,9 +122,20 @@ context_menu.add_command(label="Delete", command=item_deletion)
 # Binding right click action to the listbox area
 listbox.bind("<Button-3>", right_click)
 
+# Binding listbox selected item to the listbox area
+listbox.bind("<<ListboxSelect>>", status_bar_updater)
+
+# listbox.bind('<FocusOut>', lambda e: listbox.selection_clear(0, tk.END))
+
+#Status Bar
+status_bar = tk.Label(main, text= f" ", bd=1, relief= "sunken", anchor="n", bg="#EDECEC")
+status_bar.pack(fill="x", side="left", ipadx= 80)
+
+status_bar_b = tk.Label(main, text= f" Listo!", bd=1, relief= "sunken", anchor="n", bg="#EDECEC")
+status_bar_b.pack(fill="x", side="right", ipadx= 80)
+
 
 # Use to add buttons for merge and compress
-
 
 # merge = tk.Button(master=main, text="Merge")
 # merge.config(bg="#E4E2E2", fg="#000", bd=1, relief=tk.RAISED)
