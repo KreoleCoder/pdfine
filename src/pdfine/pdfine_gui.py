@@ -13,7 +13,7 @@ base_dir = Path(__file__).resolve().parent
 #Set the absolute path for the asset/icon resources
 icon_dir = Path(Path(base_dir.parent).parent, "asset", "icon")
 
-main = tk.Tk()
+main = tk.Tk(className="PDFine")
 main.title("PDFine")
 
 # --- Custom Window Icon ---
@@ -158,7 +158,7 @@ listbox.bind('<Escape>', clear_selected_item)
 status_bar = tk.Label(main, text= f" ", bd=1, relief= "sunken", anchor="n", bg="#EDECEC")
 status_bar.pack(fill="x", side="left", ipadx= 80)
 
-status_bar_b = tk.Label(main, text= f" Listo!", bd=1, relief= "sunken", anchor="n", bg="#EDECEC")
+status_bar_b = tk.Label(main, text= f" PDFine", bd=1, relief= "sunken", anchor="n", bg="#EDECEC")
 status_bar_b.pack(fill="x", side="right", ipadx= 80)
 
 
