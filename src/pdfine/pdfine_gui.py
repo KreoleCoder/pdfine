@@ -64,9 +64,32 @@ def wipe_list():
     status_bar.config(text=f" {len(listbox.get(0, tk.END))} file(s) ")
 
 
+# Left click event handler function
+# Clear selected item and update the status bar
+def left_click(event):
+    selected_index = listbox.curselection()
+    if selected_index:
+        listbox.selection_clear(0, tk.END)
+        total_file_size = get_total_file_size()
+        status_bar.config(text=f" {len(listbox.get(0, tk.END))} file(s) - ({(total_file_size / 1000 ** 2):.2f} MB) ")
+
+
 # Right click event handler function
 def right_click(event):
     context_menu.tk_popup(event.x_root, event.y_root)
+
+
+# Escape Key event handler function
+# Clear selected item and update the status bar
+def clear_selected_item(event):
+
+    if len(listbox.get(0, tk.END)) > 0:
+        listbox.selection_clear(0, tk.END)
+        total_file_size = get_total_file_size()
+        status_bar.config(text=f" {len(listbox.get(0, tk.END))} file(s) - ({(total_file_size / 1000 ** 2):.2f} MB) ")
+
+    else:
+        status_bar.config(text=f" {len(listbox.get(0, tk.END))} file(s) ")
 
 
 # Listbox items selection event handler function
@@ -119,13 +142,17 @@ context_menu = tk.Menu(main, tearoff=0, font=("Arial", 11))
 context_menu.add_command(label="Delete", command=item_deletion)
 
 
+# Binding left click action to the listbox area
+listbox.bind("<Button-1>", left_click)
+
 # Binding right click action to the listbox area
 listbox.bind("<Button-3>", right_click)
 
 # Binding listbox selected item to the listbox area
 listbox.bind("<<ListboxSelect>>", status_bar_updater)
 
-# listbox.bind('<FocusOut>', lambda e: listbox.selection_clear(0, tk.END))
+# Binding the Escape Key to the listbox selected item
+listbox.bind('<Escape>', clear_selected_item)
 
 #Status Bar
 status_bar = tk.Label(main, text= f" ", bd=1, relief= "sunken", anchor="n", bg="#EDECEC")

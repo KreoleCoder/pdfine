@@ -9,8 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added 
 
-- Add background and foreground color to selected item.
-- Add status bar to the GUI to display total file size and selected file size. 
+- Add background and foreground color to selected file.
+- Add status bar to the GUI to display total file size and selected file size.
+- Add Escape (Esc) Key and left click functionality to clear file that is selected.
 
 ### Changed
 
