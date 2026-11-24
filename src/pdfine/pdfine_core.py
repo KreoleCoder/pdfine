@@ -43,9 +43,11 @@ def add_files():
 
 
 def merge_pdfs():
+    merge_stat = False
+
     if not file_list:
         messagebox.showwarning("No Files", "Please add PDF files first.")
-        return
+        return merge_stat
 
     output_file = filedialog.asksaveasfilename(
         defaultextension=".pdf",
@@ -54,16 +56,21 @@ def merge_pdfs():
     )
 
     if output_file:
+        merge_stat = True
         merger = PdfWriter()
         pdfs_merger(merger, file_list)
         merger.write(output_file)
         merger.close()
         messagebox.showinfo("Success", f"Merged PDF saved as:\n{output_file}")
 
+    return merge_stat
+
 def compress_pdfs():
+    compress_stat = False
+
     if not file_list:
         messagebox.showwarning("No Files", "Please add PDF files first.")
-        return
+        return compress_stat
 
     for pdf in file_list:
         compress = PdfWriter(clone_from=pdf)
@@ -75,7 +82,11 @@ def compress_pdfs():
                 title="Save Compressed PDF As"
             )
 
-        compress.write(output_file)
+        if output_file:
+            compress_stat = True
+            compress.write(output_file)
+
+    return compress_stat
 
 
 def delete_list_item(selected_item):

@@ -34,6 +34,9 @@ main.geometry("+%d+%d" % (geometryX, geometryY))
 main.resizable(False, False)
 
 def file_adder():
+    items_in_list = len(listbox.get(0, tk.END))
+    status_bar_b.config(text=f" adding file(s) ")
+
     file_list = add_files()
     for file in file_list:
         listbox.insert(tk.END, Path(file).name)
@@ -41,6 +44,38 @@ def file_adder():
     # listbox.get(0, tk.END)
     total_file_size = get_total_file_size()
     status_bar.config(text=f" {len(listbox.get(0, tk.END))} file(s) - ({(total_file_size/1000**2):.2f} MB) ")
+
+    if len(listbox.get(0, tk.END)) == items_in_list:
+        status_bar_b.config(text=f" no new file(s) ")
+
+    else:
+        status_bar_b.config(text=f" new file(s) added ")
+
+
+def merger():
+    status_bar_b.config(text=f" merging... ")
+
+    merge_stat = merge_pdfs()
+
+    if merge_stat:
+        status_bar_b.config(text=f" merge done ")
+
+    else:
+        status_bar_b.config(text=f" file(s) not merged ")
+
+
+def compressor():
+    status_bar_b.config(text=f" compressing... ")
+    main.update_idletasks()
+
+    compress_stat = compress_pdfs()
+
+    if compress_stat:
+        status_bar_b.config(text=f" compression done ")
+
+    else:
+        status_bar_b.config(text=f" file(s) not compressed ")
+
 
 
 def item_deletion():
@@ -54,14 +89,21 @@ def item_deletion():
         total_file_size = get_total_file_size()
         status_bar.config(text=f" {str(len(files))} file(s) - ({(total_file_size/1000**2):.2f} MB) ")
 
+        status_bar_b.config(text=f" file deleted ")
+        main.update_idletasks()
+        main.after(1000, lambda lb :status_bar_b.config(text=lb), " Ready ")
+
+
     except IndexError:
         messagebox.showwarning("No File Selected", "Please select a file to delete")
 
 
 def wipe_list():
+    status_bar_b.config(text=f" removing files")
     clear_list()
     listbox.delete(0, tk.END)
     status_bar.config(text=f" {len(listbox.get(0, tk.END))} file(s) ")
+    status_bar_b.config(text=f" all files removed ")
 
 
 # Left click event handler function
@@ -72,6 +114,7 @@ def left_click(event):
         listbox.selection_clear(0, tk.END)
         total_file_size = get_total_file_size()
         status_bar.config(text=f" {len(listbox.get(0, tk.END))} file(s) - ({(total_file_size / 1000 ** 2):.2f} MB) ")
+        status_bar_b.config(text=f" Ready ")
 
 
 # Right click event handler function
@@ -87,9 +130,11 @@ def clear_selected_item(event):
         listbox.selection_clear(0, tk.END)
         total_file_size = get_total_file_size()
         status_bar.config(text=f" {len(listbox.get(0, tk.END))} file(s) - ({(total_file_size / 1000 ** 2):.2f} MB) ")
+        status_bar_b.config(text=f" Ready ")
 
     else:
         status_bar.config(text=f" {len(listbox.get(0, tk.END))} file(s) ")
+        status_bar_b.config(text=f" Ready ")
 
 
 # Listbox items selection event handler function
@@ -102,11 +147,7 @@ def status_bar_updater(event):
         selected_item = listbox.get(list_item_index)
         item_size = file_size(list_item_index)
         status_bar.config(text=f"{selected_item} ({(item_size/1000**2):.2f} MB) ")
-
-    else:
-        total_file_size = get_total_file_size()
-        status_bar.config(text=f" {len(listbox.get(0, tk.END))} file(s) - ({(total_file_size/1000**2):.2f} MB) ")
-
+        status_bar_b.config(text=f" Ready ")
 
 
 menu = tk.Menu(main)
@@ -118,8 +159,8 @@ menu_0.add_separator()
 menu_0.add_command(label="Exit", command=main.quit)
 menu.add_cascade(label="File", menu=menu_0)
 menu_1 = tk.Menu(menu, tearoff=0)
-menu_1.add_command(label="Merge", command=merge_pdfs)
-menu_1.add_command(label="Compress", command=compress_pdfs)
+menu_1.add_command(label="Merge", command=merger)
+menu_1.add_command(label="Compress", command=compressor)
 menu_1.add_separator()
 menu_1.add_command(label="Delete", command=item_deletion)
 menu.add_cascade(label="Edit", menu=menu_1)
@@ -158,7 +199,7 @@ listbox.bind('<Escape>', clear_selected_item)
 status_bar = tk.Label(main, text= f" ", bd=1, relief= "sunken", anchor="n", bg="#EDECEC")
 status_bar.pack(fill="x", side="left", ipadx= 80)
 
-status_bar_b = tk.Label(main, text= f" PDFine", bd=1, relief= "sunken", anchor="n", bg="#EDECEC")
+status_bar_b = tk.Label(main, text= f" PDFine ", bd=1, relief= "sunken", anchor="n", bg="#EDECEC")
 status_bar_b.pack(fill="x", side="right", ipadx= 80)
 
 

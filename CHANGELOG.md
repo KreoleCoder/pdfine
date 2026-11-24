@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-11-23
+
+### Changed
+
+- Right status bar can now display the name of the app along with dynamic information.
+- Update the right status bar indicator to dynamically display actions being done.
+
+### Fixed
+
+- Fix error raised by not selecting to save file when compressing PDF.
+
 ## [1.1.0] - 2026-11-16
 
 ### Added 
@@ -111,7 +122,8 @@ PDF files.
 
 - Add the GUI for users interaction.
 
-[Unreleased]: https://github.com/KreoleCoder/pdfine/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/KreoleCoder/pdfine/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/KreoleCoder/pdfine/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/KreoleCoder/pdfine/compare/v1.0.1...v1.1.0
 [1.0.1]: https://github.com/KreoleCoder/pdfine/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/KreoleCoder/pdfine/compare/v1.0.0rc1...v1.0.0
